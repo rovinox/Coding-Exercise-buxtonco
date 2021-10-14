@@ -32,10 +32,10 @@ const validateLoginForm = (form) => {
     !form.password ||
     !form.username ||
     form.password === null ||
-    form.username === null
+    form.username === null ||
+    form.username.length <= 5 ||
+    form.password.length <= 7
   ) {
-    return false;
-  } else if (form.username.length <= 5 || form.password.length <= 7) {
     return false;
   } else {
     return true;
@@ -58,9 +58,7 @@ const validateLoginForm = (form) => {
  *    The sum of 13, 10, and 37 is 60
  */
 const calculateSum = (numbers) => {
-  if (!numbers) {
-    return 0;
-  } else if (numbers === null) {
+  if (!numbers || numbers === null) {
     return 0;
   }
 
